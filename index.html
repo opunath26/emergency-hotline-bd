@@ -10,8 +10,29 @@
 </head>
 
 <body>
-    <header >
-        <nav></nav>
+    <header>
+        <!-- Navbar Section start-->
+        <nav class="flex justify-between items-center bg-white shadow p-4">
+            <div class="flex items-center space-x-2">
+                <img src="./assets/logo-dark.png" alt="Logo" class="w-8 h-8">
+                <h1 class="font-bold text-green-700 text-xl">Emergency <br>Hotline</h1>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-1 bg-green-100 px-4 py-2 rounded-full">
+                    <span id="heartCount" class="font-bold text-red-500">0</span>
+                    <span><img class="w-6 h-6" src="./assets/heart.png" alt=""></span>
+                </div>
+                <div class="flex items-center space-x-1 bg-green-100 px-4 py-2 rounded-full">
+                    <span id="coinCount" class="font-bold">100</span>
+                    <span><img class="w-6 h-6" src="./assets/coin.png" alt=""></span>
+                </div>
+                <div class="flex justify-center items-center space-x-1 text-white">
+                    <span id="copyCount" class="bg-green-500 px-4 py-2 rounded-full font-bold">0 Copy</span>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar section end  -->
+
         <section></section>
     </header>
     <main></main>
