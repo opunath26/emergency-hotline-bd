@@ -98,12 +98,12 @@ services.forEach((service) => {
             <div>
     <img src="../assets/${service.icon}" alt="${service.name}" class="h-10 w-10">
 </div>
-            <button class="heart-btn text-red-500 text-xl"><img class="h-6 w-6" src="../assets/heartborder.png" alt="Heart"></button>
+            <button class="heart-btn text-red-500 text-xl"><img class="h-6 md:h-10 w-6 md:w-10" src="../assets/heartborder.png" alt="Heart"></button>
         </div>
         <h4 class="font-bold text-lg font-mono">${service.name}</h4>
         <p class="font-light">${service.helped}</p>
         <p class="font-bold text-xl mt-4">${service.number}</p>
-        <span class="badge badge-primary my-2 bg-slate-200 p-3 rounded-full opacity-80 w-fit mb-4">${service.category}</span>
+        <span class="badge badge-primary my-2 bg-slate-200 p-3 rounded-3xl opacity-80 w-fit mb-4">${service.category}</span>
         <div class="flex gap-3 justify-between mt-2">
             <button class="copy-btn btn btn-sm btn-outline flex items-center border-2 w-full justify-center p-2 rounded-lg"><img class="h-6 w-6" src="../assets/copyicon.png" alt="Copy"> Copy</button>
             <button class="call-btn btn btn-sm btn-outline w-full flex items-center justify-center p-2 rounded-lg bg-green-500 text-white"><img class="h-6 w-6" src="../assets/call-icon.png" alt="Call">Call</button>
@@ -125,29 +125,34 @@ services.forEach((service) => {
     navigator.clipboard.writeText(service.number);
     alert(`${service.number} copied to clipboard`);
     copyCount++;
-    copy.textContent = copyCount;
+    copy.textContent = copyCount + " Copy";
   });
 
 
   // Call functionality
-  const callBtn = card.querySelector(".call-btn");
-  callBtn.addEventListener("click", () => {
+const callBtn = card.querySelector(".call-btn");
+callBtn.addEventListener("click", () => {
     if (coinCount < 20) {
-      alert("Not enough coins to make a call!");
-      return;
+        alert("Not enough coins to make a call!");
+        return;
     }
     coinCount -= 20;
     coin.textContent = coinCount;
 
     const time = new Date().toLocaleTimeString();
     alert(`Calling ${service.name} (${service.number})`);
-      const li = document.createElement("li");
-    li.textContent = `${service.name} - ${service.number} at ${time}`;
+
+    const li = document.createElement("li");
+    li.innerHTML = `<div class="flex justify-between items-center bg-slate-100/70 p-3 rounded-2xl">
+            <p><span class="font-bold">${service.name}</span><br><span class="text-gray-500">${service.number}</span></p>
+        <p>${time}</p>
+        </div>`;
     historyList.appendChild(li);
-    });
+});
+
 });
 
 // Clear history functionality
 clearHistoryBtn.addEventListener("click", () => {
-  historyList.innerHTML = "";
+  historyList.innerHTML = "";
 });
