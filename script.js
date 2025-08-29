@@ -96,17 +96,17 @@ services.forEach((service) => {
   card.innerHTML = `
         <div class="flex justify-between items-center mb-2">
             <div>
-    <img src="../assets/${service.icon}" alt="${service.name}" class="h-10 w-10">
+    <img src="./assets/${service.icon}" alt="${service.name}" class="h-10 w-10">
 </div>
-            <button class="heart-btn text-red-500 text-xl"><img class="h-6 md:h-10 w-6 md:w-10" src="../assets/heartborder.png" alt="Heart"></button>
+            <button class="heart-btn text-red-500 text-xl"><img class="h-6 md:h-10 w-6 md:w-10" src="./assets/heartborder.png" alt="Heart"></button>
         </div>
         <h4 class="font-bold text-lg font-mono">${service.name}</h4>
         <p class="font-light">${service.helped}</p>
         <p class="font-bold text-xl mt-4">${service.number}</p>
-        <span class="badge badge-primary my-2 bg-slate-200 p-3 rounded-3xl opacity-80 w-fit mb-4">${service.category}</span>
+        <span class="badge badge-primary my-2 bg-slate-200 py-3 px-5 rounded-3xl opacity-80 w-fit mb-4">${service.category}</span>
         <div class="flex gap-3 justify-between mt-2">
-            <button class="copy-btn btn btn-sm btn-outline flex items-center border-2 w-full justify-center p-2 rounded-lg"><img class="h-6 w-6" src="../assets/copyicon.png" alt="Copy"> Copy</button>
-            <button class="call-btn btn btn-sm btn-outline w-full flex items-center justify-center p-2 rounded-lg bg-green-500 text-white"><img class="h-6 w-6" src="../assets/call-icon.png" alt="Call">Call</button>
+            <button class="copy-btn btn btn-sm btn-outline flex items-center border-2 w-full justify-center p-2 rounded-lg"><img class="h-6 w-6" src="./assets/copyicon.png" alt="Copy"> Copy</button>
+            <button class="call-btn btn btn-sm btn-outline w-full flex items-center justify-center p-2 rounded-lg bg-green-500 text-white"><img class="h-6 w-6" src="./assets/call-icon.png" alt="Call">Call</button>
         </div>
     `;
   cardsContainer.appendChild(card);
