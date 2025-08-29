@@ -1,10 +1,15 @@
 let heartCount = 0;
 let coinCount = 100;
+let copyCount = 0;
 
 const heart = document.getElementById("heartCount");
 const coin = document.getElementById("coinCount");
+const copy = document.getElementById("copyCount");
+
 
 const cardsContainer = document.getElementById("cards");
+const historyList = document.getElementById("historyList");
+
 
 
 // card data
@@ -105,7 +110,7 @@ services.forEach((service) => {
         </div>
     `;
   cardsContainer.appendChild(card);
-});
+
 
   // Heart functionality
   const heartBtn = card.querySelector(".heart-btn");
@@ -113,6 +118,16 @@ services.forEach((service) => {
     heartCount++;
     heart.textContent = heartCount;
   });
+
+   // Copy functionality
+  const copyBtn = card.querySelector(".copy-btn");
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(service.number);
+    alert(`${service.number} copied to clipboard`);
+    copyCount++;
+    copy.textContent = copyCount;
+  });
+
 
   // Call functionality
   const callBtn = card.querySelector(".call-btn");
@@ -129,4 +144,5 @@ services.forEach((service) => {
       const li = document.createElement("li");
     li.textContent = `${service.name} - ${service.number} at ${time}`;
     historyList.appendChild(li);
+    });
 });
