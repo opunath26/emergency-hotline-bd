@@ -1,3 +1,12 @@
+let heartCount = 0;
+let coinCount = 100;
+
+const heart = document.getElementById("heartCount");
+const coin = document.getElementById("coinCount");
+
+const cardsContainer = document.getElementById("cards");
+
+
 // card data
 const services = [
     {
@@ -96,4 +105,28 @@ services.forEach((service) => {
         </div>
     `;
   cardsContainer.appendChild(card);
+});
+
+  // Heart functionality
+  const heartBtn = card.querySelector(".heart-btn");
+  heartBtn.addEventListener("click", () => {
+    heartCount++;
+    heart.textContent = heartCount;
+  });
+
+  // Call functionality
+  const callBtn = card.querySelector(".call-btn");
+  callBtn.addEventListener("click", () => {
+    if (coinCount < 20) {
+      alert("Not enough coins to make a call!");
+      return;
+    }
+    coinCount -= 20;
+    coin.textContent = coinCount;
+
+    const time = new Date().toLocaleTimeString();
+    alert(`Calling ${service.name} (${service.number})`);
+      const li = document.createElement("li");
+    li.textContent = `${service.name} - ${service.number} at ${time}`;
+    historyList.appendChild(li);
 });
