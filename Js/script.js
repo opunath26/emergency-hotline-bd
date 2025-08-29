@@ -9,7 +9,7 @@ const copy = document.getElementById("copyCount");
 
 const cardsContainer = document.getElementById("cards");
 const historyList = document.getElementById("historyList");
-
+const clearHistoryBtn = document.getElementById("clearHistory");
 
 
 // card data
@@ -145,4 +145,9 @@ services.forEach((service) => {
     li.textContent = `${service.name} - ${service.number} at ${time}`;
     historyList.appendChild(li);
     });
+});
+
+// Clear history functionality
+clearHistoryBtn.addEventListener("click", () => {
+  historyList.innerHTML = "";
 });
